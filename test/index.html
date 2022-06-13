@@ -18,6 +18,7 @@
 <body>
 
     <div class="container" id="app">
+        <h1 class="col-12 text-center py-2">Film Database</h1>
         <form class="row g-3 my-5">
             <div class="col-md-12">
               <label for="inputName" class="form-label">Name</label>
@@ -31,29 +32,39 @@
               <label for="inputYear" class="form-label">Year</label>
               <input type="year" class="form-control" placeholder="Year of release" v-model="year">
             </div>
-            <div class="col-12">
-                <label for="inputVote" class="form-label">Vote:</label>
-                <select class="form-select" aria-label="Default select example" v-model="vote">
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                    <option value="4">Four</option>
-                    <option value="5">Five</option>
-                </select>
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <p class="col-12 text-center">Votes:</p>
+                <div class="btn-group mx-auto" role="group">
+                  <button type="button" class="btn btn-primary" @click="saveVotes(1)">1</button>
+                  <button type="button" class="btn btn-primary" @click="saveVotes(2)">2</button>
+                  <button type="button" class="btn btn-primary" @click="saveVotes(3)">3</button>
+                  <button type="button" class="btn btn-primary" @click="saveVotes(4)">4</button>
+                  <button type="button" class="btn btn-primary" @click="saveVotes(5)">5</button>
+                </div>
+            </div>
+            <div class="col-12 text-center">
+
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="(item,index) in voteList" :key="index">{{item}}</li>
+                    <span class="btn btn-primary" @click="getAverage">Calcola Media</span>
+                    <li class="list-group-item my-3" v-if="avrVote != ''">{{avrVote}}</li>
+                </ul>
+
             </div>
             <div class="col-6 gap-2 d-grid py-2 mx-auto">
-              <button type="submit" class="btn btn-primary" @click="saveMovie">Salva</button>
-              <button class="btn btn-primary" type="button" @click="reset">Svuota Lista</button>
+              <p v-if="avrVote == '' ">Per salvare il film calcola prima la media dei voti</p>
+              <button v-if="avrVote != ''" type="submit" class="btn btn-primary" @click="saveMovie">Save</button>
+              <button class="btn btn-primary" type="button" @click="reset">Reset List</button>
             </div>
           </form>
 
         <ul class="list-group">
             <li class="list-group-item" v-for="(item, index) in items" :key="index">
                 <ul>
-                    <li><h2>Nome: {{item.title}}</h2></li>
-                    <li><p>Genere: {{item.genre}}</p></li>
-                    <li><p>Anno di uscita: {{item.year}}</p></li>
-                    <li><p>Voto: {{item.vote}}</p></li>
+                    <li><h2>Title: {{item.title}}</h2></li>
+                    <li><p>Genre: {{item.genre}}</p></li>
+                    <li><p>Year of release: {{item.year}}</p></li>
+                    <li><p>Vote: {{item.avrVote}}</p></li>
                 </ul>
             </li>
         </ul>

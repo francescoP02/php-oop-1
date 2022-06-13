@@ -11,24 +11,24 @@ $arrayMovies = json_decode($json, true);
 $name = $_POST['name'];
 $genre = $_POST['genre'];
 $year = $_POST['year'];
-$vote = $_POST['vote'];
+$avrVote = $_POST['avrVote'];
 
 class Movie {
     public $title;
     public $genre;
     public $year;
-    public $vote;
+    public $avrVote;
 
-    function __construct($_title, $_genre, $_year, $_vote) {
+    function __construct($_title, $_genre, $_year, $_avrVote) {
         $this->title = $_title;
         $this->genre = $_genre;
         $this->year = $_year;
-        $this->vote = $_vote;
+        $this->avrVote = $_avrVote;
     }
 
 }
 
-$arrayMovies[] = new Movie($name, $genre, $year, $vote);
+$arrayMovies[] = new Movie($name, $genre, $year, $avrVote);
 
 $json = json_encode($arrayMovies, JSON_PRETTY_PRINT);
 
