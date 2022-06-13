@@ -32,5 +32,12 @@ new Vue ({
 
         },
 
+        reset() {
+            // chiama semplicemente un file php, lì dentro ci saranno le istruzioni utili per il reset
+            axios.get('reset.php').then(() => {
+                this.items = [];
+            });
+        }
+
     }
 })

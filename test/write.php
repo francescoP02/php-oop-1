@@ -6,7 +6,7 @@ header('Content-Type: application/json');
 
 $json = file_get_contents($filename);
 
-$array = json_decode($json, true);
+$arrayMovies = json_decode($json, true);
 
 $name = $_POST['name'];
 $genre = $_POST['genre'];
@@ -28,9 +28,9 @@ class Movie {
 
 }
 
-$array[] = new Movie($name, $genre, $year, $vote);
+$arrayMovies[] = new Movie($name, $genre, $year, $vote);
 
-$json = json_encode($array, JSON_PRETTY_PRINT);
+$json = json_encode($arrayMovies, JSON_PRETTY_PRINT);
 
 file_put_contents($filename, $json);
 
