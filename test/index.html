@@ -52,7 +52,7 @@
 
             </div>
             <div class="col-6 gap-2 d-grid py-2 mx-auto">
-              <p v-if="avrVote == '' ">Per salvare il film calcola prima la media dei voti</p>
+              <p class="text-center" v-if="avrVote == '' ">Per salvare il film calcola prima la media dei voti</p>
               <button v-if="avrVote != ''" type="submit" class="btn btn-primary" @click="saveMovie">Save</button>
               <button class="btn btn-primary" type="button" @click="reset">Reset List</button>
             </div>
