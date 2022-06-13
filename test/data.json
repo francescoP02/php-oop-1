@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Harry Potter e la Pietra Filosofale",
+        "genre": "Fantasy",
+        "year": "2001",
+        "vote": "4"
+    },
+    {
+        "title": "Harry Potter e la Camera dei Segreti",
+        "genre": "Fantasy",
+        "year": "2002",
+        "vote": "3"
+    },
+    {
+        "title": "Harry Potter e il Prigioniero di Azkaban",
+        "genre": "Fantasy",
+        "year": "2004",
+        "vote": "5"
+    }
+]
